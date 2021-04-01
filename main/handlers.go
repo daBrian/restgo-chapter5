@@ -1,14 +1,17 @@
 package main
 
 import (
+	"chapter5/database"
 	"chapter5/domain"
-	"chapter5/repository"
 	"encoding/json"
 	"fmt"
+	"github.com/gorilla/mux"
 	"io/ioutil"
 	"net/http"
 	"strconv"
 )
+
+var repository database.Repository
 
 func createInvoiceHandler(writer http.ResponseWriter, request http.Request) {
 	// Read invoice data from request body
